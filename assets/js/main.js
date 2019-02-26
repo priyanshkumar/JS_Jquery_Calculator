@@ -15,19 +15,43 @@ $(document).ready(function() {
 
   $(".number").on("click", function() {
     if (isOperatorChoose) {
-      secondNumb += this.val();
+      secondNumb += $(this).val();
       $("#second-number").text(secondNumb);
     } else {
-      firstNumb += this.val();
+      firstNumb += $(this).val();
       $("#first-number").text(firstNumb);
     }
   });
 
   $(".operator").on("click", function() {
-    if (!isOperatorChoose && !firstNumb) {
-      operator = this.val();
+    if (firstNumb != "") {
+      operator = $(this).val();
       isOperatorChoose = true;
-      $("#operator").text(this.text());
+      $("#operator").text($(this).text());
     }
   });
+
+  $(".equal").on("click", function() {
+    firstNumb = parseInt(firstNumb);
+    secondNumb = parseInt(secondNumb);
+
+    if (operator == "plus") {
+      result = firstNumb + secondNumb;
+    } else if (operator == "minus") {
+      result = firstNumb - secondNumb;
+    } else if (operator == "times") {
+      result = firstNumb * secondNumb;
+    } else if (operator == "divide") {
+      result = firstNumb / secondNumb;
+    } else {
+      result = Math.pow(firstNumb, secondNumb);
+    }
+
+    $("#result").text(result);
+  });
+
+  $(".clear").on("click", function() {
+    reset();
+  });
+  reset();
 });
