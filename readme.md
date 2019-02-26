@@ -1,4 +1,4 @@
-###Jquery Calculator
+### query Calculator
 
 1. It is a basic calculator in which you can run any operator just once!
 
@@ -9,6 +9,6 @@
 | └── main.js
 └── index.html
 
-###Build With
+### Build With
 
 Html, Jquery, Bootstrap
